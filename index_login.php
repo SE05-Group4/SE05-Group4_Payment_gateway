@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>PHP Learning</title>
+  <title>Login</title>
   
   
   <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Open+Sans:600'>
