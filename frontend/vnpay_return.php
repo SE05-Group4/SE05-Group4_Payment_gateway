@@ -55,14 +55,14 @@
                 <div class="form-group">
 
                     <label >Số tiền:</label>
-                    <label><?php echo $_GET['vnp_Amount'] ?></label>
+                    <label><?php echo $_GET['vnp_Amount'] /100 ?></label>
                 </div>  
                 <div class="form-group">
                     <label >Nội dung thanh toán:</label>
                     <label><?php echo $_GET['vnp_OrderInfo'] ?></label>
                 </div> 
                 <div class="form-group">
-                    <label >Mã phản hồi (vnp_ResponseCode):</label>
+                    <label >Mã phản hồi :</label>
                     <label><?php echo $_GET['vnp_ResponseCode'] ?></label>
                 </div> 
                 <div class="form-group">

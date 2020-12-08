@@ -55,7 +55,9 @@ if (isset($vnp_HashSecret)) {
    	$vnpSecureHash = hash('sha256', $vnp_HashSecret . $hashdata);
     $vnp_Url .= 'vnp_SecureHashType=SHA256&vnp_SecureHash=' . $vnpSecureHash;
 }
-$returnData = array('code' => '00'
-    , 'message' => 'success'
-    , 'data' => $vnp_Url);
-echo json_encode($returnData);
+//$returnData = array('code' => '00'
+  //  , 'message' => 'success'
+    //, 'data' => $vnp_Url);
+$returnData = $vnp_Url;
+//echo json_encode($returnData);
+header('Location: '.$returnData);
