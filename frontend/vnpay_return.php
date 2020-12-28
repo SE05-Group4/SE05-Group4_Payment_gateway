@@ -99,7 +99,7 @@
                 &nbsp;
             </p>
             <footer class="footer">
-                <p>&copy; VNPAY 2015</p>
+                <p>&copy; VNPAY 2020</p>
             </footer>
         </div>  
     </body>

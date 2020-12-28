@@ -19,12 +19,17 @@
 
         <div class="container">
             <div class="header clearfix">
-                <h3 class="text-muted">VNPAY DEMO</h3>
+                <h3 class="text-muted">VNPAY Payment</h3>
             </div>
             <h3>Tạo mới đơn hàng</h3>
             <div class="table-responsive">
                 <form action="/Payment-gateway/frontend/vnpay_create_payment.php" id="create_form" method="post">       
 
+                    <div class="form-group">
+                        <label for="language">Loại hàng hóa </label>
+                        <input class="form-control" id="order_type" name="order_type" type="text" value=""/>
+                    </div>
+                    <!--
                     <div class="form-group">
                         <label for="language">Loại hàng hóa </label>
                         <select name="order_type" id="order_type" class="form-control">
@@ -34,9 +39,12 @@
                             <option value="other">Khác - Xem thêm tại VNPAY</option>
                         </select>
                     </div>
+                    -->
+
+
                     <div class="form-group">
                         <label for="order_id">Mã hóa đơn</label>
-                        <input class="form-control" id="order_id" name="order_id" type="text" value="<?php echo date("YmdHis") ?>"/>
+                        <input class="form-control" id="order_id" name="order_id" type="text" value=" <?php echo date("YmdHis") ?>" readonly/>
                     </div>
                     <div class="form-group">
                         <label for="amount">Số tiền</label>
@@ -51,7 +59,7 @@
                         <label for="bank_code">Ngân hàng</label>
                         <select name="bank_code" id="bank_code" class="form-control">
                             <option value="">Không chọn</option>
-                            <option value="NCB"> Ngan hang NCB</option>
+                            <option value="NCB"selected> Ngan hang NCB</option>
                             <option value="AGRIBANK"> Ngan hang Agribank</option>
                             <option value="SCB"> Ngan hang SCB</option>
                             <option value="SACOMBANK">Ngan hang SacomBank</option>
@@ -82,9 +90,10 @@
                             <option value="en">English</option>
                         </select>
                     </div>
-
+                    <!--
                     <button type="submit" class="btn btn-primary" id="btnPopup">Thanh toán Popup</button>
-                    <button type="submit" class="btn btn-default">Thanh toán Redirect</button>
+                    -->
+                    <button type="submit" class="btn btn-default">Xác Nhận Thông Tin Đơn Hàng</button>
                 </form>
             </div>
             <p>
@@ -96,6 +105,7 @@
         </div>  
         <link href="https://sandbox.vnpayment.vn/paymentv2/lib/vnpay/vnpay.css" rel="stylesheet"/>
         <script src="https://sandbox.vnpayment.vn/paymentv2/lib/vnpay/vnpay.js"></script>
+        <!--
         <script type="text/javascript">
             $("#btnPopup").click(function () {
                 var postData = $("#create_form").serialize();
@@ -121,7 +131,7 @@
                 return false;
             });
         </script>
-
+        -->
 
     </body>
 </html>
