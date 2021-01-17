@@ -22,6 +22,6 @@ Trang bán hàng:
     dữ liệu sản phẩm
   . Trang web đã kết nối được và thanh toán bằng vnpay.
   . VNpay hỗ trợ đầy đủ tính năng kết nối và thanh toán online.
-  project vẫn còn một số lỗi chưa thể khắc phục.
-  ngoài ra còn một số chức năng chưa hoàn thiện.
+  Project vẫn còn một số lỗi chưa thể khắc phục.
+  Ngoài ra còn một số chức năng chưa hoàn thiện.
     
