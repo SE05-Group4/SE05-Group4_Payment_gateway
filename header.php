@@ -132,7 +132,7 @@
 										<a href="#">Tài khoản của tôi</a>
 									</li>
 									<li class="header__navbar-user-item">
-										<a href="#">Địa chỉ của tôi</a>
+										<a href="/demo/address.php">Địa chỉ của tôi</a>
 									</li>
 									<li class="header__navbar-user-item">
 										<a href="#">Đơn mua</a>
@@ -164,18 +164,20 @@
 						<!-- end logo -->
 
 						<!-- search -->
+						<a class="navbar-brand" href="/demo/main-page.php">Shop</a>
 						<div class="header__search hide-on-mobile">
 							<div class="header__search-input-wrap">
+
 								<input type="text" class="header__search-input" placeholder="Tìm kiếm sản phẩm tại đây">
 
 								<div class="header__search-history">
 									<h3 class="header__search-history-heading">Lịch sử tìm kiếm</h3>
 									<ul class="header__search-history-list">
 										<li class="header__search-history-item">
-											<a href="#">Mũ bảo hiểm</a>
+											<a href="#">SamSung Galaxy S10</a>
 										</li>
 										<li class="header__search-history-item">
-											<a href="#">Gang tay phượt</a>
+											<a href="#"></a>
 										</li>
 									</ul>
 								</div>

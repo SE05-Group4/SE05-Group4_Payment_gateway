@@ -1,10 +1,15 @@
+<?php
+ob_start();
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <!-- The above 3 meta tags must come first in the head; any other head content must come after these tags -->
         <meta name="description" content="">
         <meta name="author" content="">
         <title>VNPAY RESPONSE</title>
@@ -39,7 +44,7 @@
         }
 
         //$secureHash = md5($vnp_HashSecret . $hashData);
-		$secureHash = hash('sha256',$vnp_HashSecret . $hashData);
+        $secureHash = hash('sha256',$vnp_HashSecret . $hashData);
         ?>
         <!--Begin display -->
         <div class="container">
@@ -51,49 +56,72 @@
                     <label >Mã đơn hàng:</label>
 
                     <label><?php echo $_GET['vnp_TxnRef'] ?></label>
-                </div>    
+                </div>
                 <div class="form-group">
 
                     <label >Số tiền:</label>
                     <label><?php echo $_GET['vnp_Amount'] /100 ?></label>
-                </div>  
+                </div>
                 <div class="form-group">
                     <label >Nội dung thanh toán:</label>
                     <label><?php echo $_GET['vnp_OrderInfo'] ?></label>
-                </div> 
-                <div class="form-group">
-                    <label >Mã phản hồi :</label>
-                    <label><?php echo $_GET['vnp_ResponseCode'] ?></label>
-                </div> 
+                </div>
+<!--                <div class="form-group">-->
+<!--                    <label >Mã phản hồi :</label>-->
+<!--                    <label>--><?php //echo $_GET['vnp_ResponseCode'] ?><!--</label>-->
+<!--                </div> -->
                 <div class="form-group">
                     <label >Mã GD Tại VNPAY:</label>
                     <label><?php echo $_GET['vnp_TransactionNo'] ?></label>
-                </div> 
+                </div>
                 <div class="form-group">
                     <label >Mã Ngân hàng:</label>
                     <label><?php echo $_GET['vnp_BankCode'] ?></label>
-                </div> 
+                </div>
                 <div class="form-group">
                     <label >Thời gian thanh toán:</label>
                     <label><?php echo $_GET['vnp_PayDate'] ?></label>
-                </div> 
+                </div>
                 <div class="form-group">
                     <label >Kết quả:</label>
                     <label>
                         <?php
                         if ($secureHash == $vnp_SecureHash) {
                             if ($_GET['vnp_ResponseCode'] == '00') {
-                                echo "GD Thanh cong";
+                                $order_id = $_GET['vnp_TxnRef'];
+                                $money = $_GET['vnp_Amount']/100;
+                                $note = $_GET['vnp_OrderInfo'];
+                                $vnp_response_code = $_GET['vnp_ResponseCode'];
+                                $code_vnpay = $_GET['vnp_TransactionNo'];
+                                $code_bank = $_GET['vnp_BankCode'];
+                                $time = $_GET['vnp_PayDate'];
+                                $date_time = substr($time, 0, 4) . '-' . substr($time, 4, 2) . '-' . substr($time, 6, 2) . ' ' . substr($time, 8, 2) . ' ' . substr($time, 10, 2) . ' ' . substr($time, 12, 2);
+                                require_once ('../../connect.php');
+//                                $taikhoan = $_SESSION['tk'];
+                                $sql = "SELECT * FROM payments WHERE order_id = '$order_id'";
+                                $query = mysqli_query($connect , $sql);
+                                $row = mysqli_num_rows($query);
+
+                                if ($row > 0) {
+                                    $sql = "UPDATE payments SET order_id = '$order_id', money = '$money', note = '$note', vnp_response_code = '$vnp_response_code', code_vnpay = '$code_vnpay', code_bank = '$code_bank' WHERE order_id = '$order_id'";
+
+                                    mysqli_query($connect, $sql);
+                                } else {
+                                    $sql = "INSERT INTO payments(order_id, money, note, vnp_response_code, code_vnpay, code_bank, time) VALUES ('$order_id', '$money', '$note', '$vnp_response_code', '$code_vnpay', '$code_bank','$date_time')";
+                                    mysqli_query($connect, $sql);
+                                }
+
+                                echo "GD Thành Công";
                             } else {
-                                echo "GD Khong thanh cong";
+                                echo "GD Không Thành Công";
                             }
                         } else {
-                            echo "Chu ky khong hop le";
+                            echo "Chữ Kí Không Hợp Lệ";
                         }
                         ?>
 
                     </label>
-                </div> 
+                </div>
             </div>
             <p>
             <h3> Click <a href='../../main-page.php'>here </a> to return to Home Page</h3>
@@ -101,6 +129,6 @@
             <footer class="footer">
                 <p>&copy; VNPAY 2020</p>
             </footer>
-        </div>  
+        </div>
     </body>
 </html>

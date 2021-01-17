@@ -5,98 +5,18 @@
 </head>
 <body>
 	<!-- footer -->
-		<footer class="footer">
-			<div class="grid wide">
-				<div class="grid__row">
-					<div class="grid__column-2-4">
-						<h3 class="footer__heading">Chăm sóc khách hàng</h3>
-						<ul class="footer-list">
-							<li class="footer-item">
-								<a href="#" class="footer-item__link">Trung tâm trợ giúp</a>
-							</li>
-							<li class="footer-item">
-								<a href="#" class="footer-item__link">C-shop Mall</a>
-							</li>
-							<li class="footer-item">
-								<a href="#" class="footer-item__link">Hướng dẫn mua hàng</a>
-							</li>
-						</ul>
-					</div>
-					<div class="grid__column-2-4">
-						<h3 class="footer__heading">Giới thiệu</h3>
-						<ul class="footer-list">
-							<li class="footer-item">
-								<a href="#" class="footer-item__link">Giới thiệu</a>
-							</li>
-							<li class="footer-item">
-								<a href="#" class="footer-item__link">Tuyển dụng</a>
-							</li>
-							<li class="footer-item">
-								<a href="#" class="footer-item__link">Điều khoản</a>
-							</li>
-						</ul>
-					</div>
-					<div class="grid__column-2-4">
-						<h3 class="footer__heading">Theo dõi</h3>
-						<ul class="footer-list">
-							<li class="footer-item">
-								<a href="#" class="footer-item__link">
-									<i class="fab fa-facebook footer-item__icon"></i>
-									Facebook
-								</a>
-							</li>
-							<li class="footer-item">
-								<a href="#" class="footer-item__link">
-									<i class="fab fa-instagram footer-item__icon"></i>
-									Instagram
-								</a>
-							</li>
-							<li class="footer-item">
-								<a href="#" class="footer-item__link">
-									<i class="fab fa-linkedin footer-item__icon"></i>
-								Linkedin</a>
-							</li>
-						</ul>
-					</div>
-					<div class="grid__column-2-4">
-						<h3 class="footer__heading">Danh mục</h3>
-						<ul class="footer-list">
-							<li class="footer-item">
-								<a href="#" class="footer-item__link">Mũ bảo hiểm</a>
-							</li>
-							<li class="footer-item">
-								<a href="#" class="footer-item__link">Phụ kiện phượt</a>
-							</li>
-							<li class="footer-item">
-								<a href="#" class="footer-item__link">Đồ bảo hộ</a>
-							</li>
-						</ul>
-					</div>
-					<div class="grid__column-2-4">
-						<h3 class="footer__heading">Vào cửa hàng trên ứng dụng</h3>
-						<div class="footer__download">
-							<img src="assets/img/qrcode.png" class="footer__download-qr">
-							<div class="footer__download-apps">
-								<a href="#" class="footer__download-app-link">
-									<img src="assets/img/ch_play.png" class="footer__download-app-img">
-								</a>
+		
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
-								<a href="#" class="footer__download-app-link">
-									<img src="assets/img/apstore.png" class="footer__download-app-img">
-								</a>
-							</div>
-						</div>
+<!-- Owl Carousel Js file -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha256-pTxD+DSzIwmwhOqTFN+DB+nHjO4iAsbgfyFq5K5bcE0=" crossorigin="anonymous"></script>
 
-					</div>
-				</div>
-			</div>
-			<div class="footer__bottom">
-				<div class="grid wide">
-					<p class="footer__text">@2020 - Bản quyền thuộc về Công ty C-shoft</p>
-				</div>
-			</div>
-		</footer>
+<!--  isotope plugin cdn  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
 
+<!-- Custom Javascript -->
+<script src="index.js"></script>
 		<!--end footer -->
 </body>
 </html>

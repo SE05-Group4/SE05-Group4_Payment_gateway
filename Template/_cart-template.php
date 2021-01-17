@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <div class="row border-top py-3 mt-3">
                             <div class="col-sm-2">
                                 <img src="<?php echo $item['item_image'] ?? "../assets/products/1.png" ?>"
-                                     style="height: 120px;" alt="cart1" class="img-fluid">
+                                style="height: 120px;" alt="cart1" class="img-fluid">
                             </div>
                             <div class="col-sm-8">
                                 <h5 class="font-baloo font-size-20"><?php echo $item['item_name'] ?? "Unknown"; ?></h5>
@@ -50,74 +50,81 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 <div class="qty d-flex pt-2">
                                     <div class="d-flex font-rale w-25">
                                         <button class="qty-up border bg-light"
-                                                data-id="<?php echo $item['item_id'] ?? '0'; ?>"><i
-                                                    class="fas fa-angle-up"></i></button>
+                                        data-id="<?php echo $item['item_id'] ?? '0'; ?>"><i
+                                        class="fas fa-angle-up"></i></button>
                                         <input type="text" data-id="<?php echo $item['item_id'] ?? '0'; ?>"
-                                               class="qty_input border px-2 w-100 bg-light" disabled value="1"
-                                               placeholder="1">
+                                        class="qty_input border px-2 w-100 bg-light" disabled value="1"
+                                        placeholder="1">
                                         <button data-id="<?php echo $item['item_id'] ?? '0'; ?>"
-                                                class="qty-down border bg-light"><i class="fas fa-angle-down"></i>
+                                            class="qty-down border bg-light"><i class="fas fa-angle-down"></i>
                                         </button>
                                     </div>
 
                                     <form method="post">
                                         <input type="hidden" value="<?php echo $item['item_id'] ?? 0; ?>"
-                                               name="item_id">
+                                        name="item_id">
                                         <button type="submit" name="delete-cart-submit"
-                                                class="btn font-baloo text-danger px-3 border-right">Delete
-                                        </button>
-                                    </form>
+                                        class="btn font-baloo text-danger px-3 border-right">Xóa
+                                    </button>
+                                </form>
 
-                                    <form method="post">
-                                        <input type="hidden" value="<?php echo $item['item_id'] ?? 0; ?>"
-                                               name="item_id">
-                                        <button type="submit" name="wishlist-submit" class="btn font-baloo text-danger">
-                                            Save for Later
-                                        </button>
-                                    </form>
+                                <form method="post">
+                                    <input type="hidden" value="<?php echo $item['item_id'] ?? 0; ?>"
+                                    name="item_id">
+                                    <button type="submit" name="wishlist-submit" class="btn font-baloo text-danger">
+                                        Mua sau
+                                    </button>
+                                </form>
 
-
-                                </div>
-                                <!-- !product qty -->
 
                             </div>
+                            <!-- !product qty -->
 
-                            <div class="col-sm-2 text-right">
-                                <div class="font-size-20 text-danger font-baloo">
-                                    $<span class="product_price"
-                                           data-id="<?php echo $item['item_id'] ?? '0'; ?>"><?php echo $item['item_price'] ?? 0; ?></span>
-                                </div>
+                        </div>
+
+                        <div class="col-sm-2 text-right">
+                            <div class="font-size-20 text-danger font-baloo">
+                                <span class="product_price"
+                                data-id="<?php echo $item['item_id'] ?? '0'; ?>"><?php echo $format_number_1 = number_format($item['item_price']); ?> VNĐ</span>
                             </div>
                         </div>
-                        <!-- !cart item -->
-                        <?php
-                        return $item['item_price'];
+                    </div>
+                    <!-- !cart item -->
+                    <?php
+                    return $item['item_price'];
                     }, $cart); // closing array_map function
-                endforeach;
-                ?>
+endforeach;
+?>
+</div>
+<!-- subtotal section-->
+<div class="col-sm-3">
+    <div class="sub-total border text-center mt-2">
+        <h6 class="font-size-20 font-rale text-success py-3"><i class="fas fa-check"></i>Đơn hàng được giao miễn phí</h6>
+
+        <form action="http://localhost/demo/Template/vn_pay/thanh-toan.php" method="post">
+            <div class="border-top py-4">
+                <label for="amount">Số tiền </label>&nbsp;
+                 <span id="deal-price" data-total="<?php   echo isset($subTotal) ? $Cart->getSum($subTotal) : 0;  ?>">0 đ</span>
+
+                <input id="amount" name="amount" type="hidden" 
+                value="<?php   echo isset($subTotal) ? $Cart->getSum($subTotal) : 0;  ?>" />
+
+
+                <button type="submit" class="btn btn-warning mt-3">Thanh toán</button>
+                <script>
+                        
+                    // $("#amount").val("<?php  isset($subTotal) ? $Cart->getSum($subTotal) : 0;  ?>");
+
+                </script>
             </div>
-            <!-- subtotal section-->
-            <div class="col-sm-3">
-                <div class="sub-total border text-center mt-2">
-                    <h6 class="font-size-20 font-rale text-success py-3"><i class="fas fa-check"></i> Your order is
-                        eligible for FREE Delivery.</h6>
-                    <form action="http://localhost/demo/Template/vn_pay/thanh-toan.php" method="post">
+        </form>
 
-                        <label for="amount">Số tiền </label>&nbsp;
-
-                        <input class="form-control" id="amount" name="amount" type="number"
-                               value="<?php echo isset($subTotal) ? $Cart->getSum($subTotal) : 0; ?>" readonly/>
-
-
-                        <button type="submit" class="btn btn-warning mt-3">Proceed to Buy</button>
-
-                    </form>
-
-                </div>
-            </div>
-            <!-- !subtotal section-->
-        </div>
-        <!--  !shopping cart items   -->
     </div>
+</div>
+
+<!-- !subtotal section-->
+</div>
+<!--  !shopping cart items   -->
+</div>
 </section>
 <!-- !Shopping cart section  -->

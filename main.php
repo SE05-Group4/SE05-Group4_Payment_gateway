@@ -95,81 +95,98 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 											<span><i class="far fa-star"></i></span>
 										</div>
 										<div>
-											<span class="home-product-item__price-current "><?php echo $row['item_price']; ?></span>
-										</div>
-										<div>
-											<div class="header__cart" style="width:190px">
-												<form method="post">
-													<input type="hidden" name="item_id" value="<?php echo $row['item_id'] ?? '1'; ?>">
-													<input type="hidden" name="user_id" value="<?php echo 1; ?>">
-													<?php
-													if (in_array($row['item_id'], $Cart->getCartId($product->getData('cart')) ?? [])){
-														echo '<button type="submit" disabled class="btn btn-success font-size-12">Đã thêm vào giỏ</button>';
+										<span class="home-product-item__price-current"><?php echo  $row['item_price']; ?></span>
+									</div>
+									<div>
+										<div class="header__cart" style="width:190px">
+											<form method="post">
+												<input type="hidden" name="item_id" value="<?php echo $row['item_id'] ?? '1'; ?>">
+												<input type="hidden" name="user_id" value="<?php echo 1; ?>">
+												<?php
+												if (in_array($row['item_id'], $Cart->getCartId($product->getData('cart')) ?? [])){
+													echo '<button type="submit" disabled class="btn btn-success font-size-12">Đã thêm vào giỏ</button>';
 													
-													}else{
-														echo '<button type="submit" name="top_sale_submit" class="btn btn-warning font-size-12">Thêm vài giỏ</button>';
-													}
-													?>
+												}else{
+													echo '<button type="submit" name="top_sale_submit" class="btn btn-warning font-size-12">Thêm vài giỏ</button>';
+												}
+												?>
 
-												</form>
-											</div>
+											</form>
 										</div>
-										<div class="home-product-item__favourite">
-											<i class="fas fa-check"></i>
-										</div>
-										
-									</a>
-								</div>
-							<?php } ?>
-							<!-- //import -->
+									</div>
+									<div class="home-product-item__favourite">
+										<i class="fas fa-check"></i>
+									</div>
+
+								</a>
+							</div>
+						<?php } ?>
+						<!-- //import -->
 
 
-						</div>
 					</div>
-					<!--end product -->
-
-					<!-- pagination -->
-					<ul class="pagination home-product__pagination">
-						<li class="pagination-item">
-							<a href="#" class="pagination-item__link">
-								<i class="pagination-item__icon fas fa-angle-left"></i>
-							</a>
-						</li>
-
-						<li class="pagination-item pagination-item--active">
-							<a href="#" class="pagination-item__link">1</a>
-						</li>
-						<li class="pagination-item">
-							<a href="#" class="pagination-item__link">2</a>
-						</li>
-						<li class="pagination-item">
-							<a href="#" class="pagination-item__link">3</a>
-						</li>
-						<li class="pagination-item">
-							<a href="#" class="pagination-item__link">4</a>
-						</li>
-						<li class="pagination-item">
-							<a href="#" class="pagination-item__link">5</a>
-						</li>
-						<li class="pagination-item">
-							<a href="#" class="pagination-item__link">...</a>
-						</li>
-						<li class="pagination-item">
-							<a href="#" class="pagination-item__link">14</a>
-						</li>
-
-						<li class="pagination-item">
-							<a href="#" class="pagination-item__link">
-								<i class="pagination-item__icon fas fa-angle-right"></i>
-							</a>
-						</li>
-					</ul>
-					<!--end pagination -->
 				</div>
-				<!--end article -->
+				<!--end product -->
+
+				<!-- pagination -->
+				<ul class="pagination home-product__pagination">
+					<li class="pagination-item">
+						<a href="#" class="pagination-item__link">
+							<i class="pagination-item__icon fas fa-angle-left"></i>
+						</a>
+					</li>
+
+					<li class="pagination-item pagination-item--active">
+						<a href="#" class="pagination-item__link">1</a>
+					</li>
+					<li class="pagination-item">
+						<a href="#" class="pagination-item__link">2</a>
+					</li>
+					<li class="pagination-item">
+						<a href="#" class="pagination-item__link">3</a>
+					</li>
+					<li class="pagination-item">
+						<a href="#" class="pagination-item__link">4</a>
+					</li>
+					<li class="pagination-item">
+						<a href="#" class="pagination-item__link">5</a>
+					</li>
+					<li class="pagination-item">
+						<a href="#" class="pagination-item__link">...</a>
+					</li>
+					<li class="pagination-item">
+						<a href="#" class="pagination-item__link">14</a>
+					</li>
+
+					<li class="pagination-item">
+						<a href="#" class="pagination-item__link">
+							<i class="pagination-item__icon fas fa-angle-right"></i>
+						</a>
+					</li>
+				</ul>
+				<!--end pagination -->
 			</div>
+			<!--end article -->
 		</div>
 	</div>
-	<!--end container -->
+</div>
+<!--end container -->
 
-	<!-- footer -->
+<!-- footer -->
+<script type="text/javascript">
+	window.onload = function () {
+
+		elements = $(".home-product-item__price-current")
+		elements.each(function(index){
+			const formated = parseInt($(this).text()).toLocaleString('it-IT', {style : 'currency', currency : 'VND'})
+			$(this).text(formated)
+		})
+	}
+
+
+
+// var x = <?php echo $row['item_id'] ?? '1'; ?>;
+// x = x.toLocaleString('it-IT', {style : 'currency', currency : 'VND'});
+// console.log(x);
+
+</script>

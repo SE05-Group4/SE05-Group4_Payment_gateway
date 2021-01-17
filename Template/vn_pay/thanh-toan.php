@@ -9,10 +9,10 @@
         <meta name="author" content="">
         <title>Tạo mới đơn hàng</title>
         <!-- Bootstrap core CSS -->
-        <link href="../../assets/bootstrap.min.css" rel="stylesheet"/>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"/>
         <!-- Custom styles for this template -->
-        <link href="../../assets/jumbotron-narrow.css" rel="stylesheet">
-        <script src="../../assets/jquery-1.11.3.min.js"></script>
+        <link href="https://gist.githubusercontent.com/hellt/bc4fc51d6f1b9584605517f5c8d6a5a0/raw/1541916ad019f8b5349d7353489b6fd2d36513dd/jumbotron-narrow.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
     </head>
 
     <body>
@@ -35,8 +35,8 @@
                     </div>
                     <div class="form-group">
                         <label for="amount">Số tiền</label>
-                        <input class="form-control" id="amount"
-                               name="amount" type="number" value="<?php echo $_POST ["amount"]; ?>" readonly/>
+                        <input id="amount" name="amount" type="hidden" value="<?php echo $_POST ["amount"]; ?>"/>
+                        <input class="form-control" id="temp_amount" value="<?php echo $_POST ["amount"]; ?>" readonly/>
                     </div>
 
                     <div class="form-group">
@@ -81,7 +81,7 @@
                     <!--
                     <button type="submit" class="btn btn-primary" id="btnPopup">Thanh toán Popup</button>
                     -->
-                    <button type="submit" class="btn btn-default">Xác Nhận Thông Tin Đơn Hàng</button>
+                    <button type="submit" class="btn btn-danger">Xác Nhận Thông Tin Đơn Hàng</button>
                 </form>
             </div>
             <p>
@@ -120,6 +120,18 @@
             });
         </script>
         -->
+
+        <script type="text/javascript">
+            window.onload = function () {
+
+                element = $("#temp_amount")
+                const formated = parseInt(element.val()).toLocaleString('it-IT', {style : 'currency', currency : 'VND'})
+
+                console.log(formated)
+                element.val(formated)  
+            }
+
+        </script>
 
     </body>
 </html>

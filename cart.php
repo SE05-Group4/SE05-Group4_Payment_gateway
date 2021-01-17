@@ -1,40 +1,29 @@
 <?php
-	require 'connect.php';
+ob_start();
+// include header.php file
+include ('header.php');
 ?>
 
-<!DOCTYPE html>
+<?php
 
-
-	
-	<title>Shopee</title>
-
-	<div class="app">
-		<!-- header -->
-		<?php
-		include('header.php');
-		?>
-		<!--end header -->
-	<?php
-
-    /*  truyền dữ liệu vào */
+    /*  include cart items if it is not empty */
         count($product->getData('cart')) ? include ('Template/_cart-template.php') :  include ('Template/notFound/_cart_notFound.php');
-    
+    /*  include cart items if it is not empty */
 
-       
-        count($product->getData('wishlist')) ? include ('Template/_wishilist_template.php') :  include ('Template/notFound/_wishlist_notFound.php');
-        
+        /*  include top sale section */
+        // count($product->getData('wishlist')) ? include ('Template/_wishilist_template.php') :  include ('Template/notFound/_wishlist_notFound.php');
+        /*  include top sale section */
 
 
-    /*  include phần top sale đt mới */
+    /*  include top sale section */
         include ('Template/_new-phones.php');
-   
+    /*  include top sale section */
 
 ?>
 
-<!-- footer -->
-		<?php
-		include('footer.php');
-		?>
+<?php
+// include footer.php file
+include ('footer.php');
+?>
 
-		<!--end footer -->
-	</div>
+
