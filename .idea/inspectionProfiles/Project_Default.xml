@@ -1,0 +1,20 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="coffee.polls.models.Tintuc.objects" />
+          <option value="coffee.polls.models.phin_ca_phe.objects" />
+          <option value="coffee.polls.models.diphin.*" />
+          <option value="coffee.polls.models.freeze_phin.*" />
+          <option value="coffee.polls.filters.Order" />
+          <option value="coffee.polls.models.tinh.*" />
+          <option value="coffee.polls.models.huyen.*" />
+          <option value="coffee.polls.models.dichvu.*" />
+          <option value="coffee.polls.models.info.*" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
