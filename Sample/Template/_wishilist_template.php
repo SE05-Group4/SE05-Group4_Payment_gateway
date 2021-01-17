@@ -1,11 +1,11 @@
 <!-- Shopping cart section  -->
 <?php
-if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-    if (isset($_POST['delete-cart-submit'])){
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (isset($_POST['delete-cart-submit'])) {
         $deletedrecord = $Cart->deleteCart($_POST['item_id']);
     }
 
-    if(isset($_POST['cart-submit'])){
+    if (isset($_POST['cart-submit'])) {
         $Cart->saveForLater($_POST['item_id'], 'cart', 'wishlist');
     }
 }
@@ -21,12 +21,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 <?php
                 foreach ($product->getData('wishlist') as $item) :
                     $cart = $product->getProduct($item['item_id']);
-                    $subTotal[] = array_map(function ($item){
+                    $subTotal[] = array_map(function ($item) {
                         ?>
                         <!-- cart item -->
                         <div class="row border-top py-3 mt-3">
                             <div class="col-sm-2">
-                                <img src="<?php echo $item['item_image'] ?? "../assets/products/1.png" ?>" style="height: 120px;" alt="cart1" class="img-fluid">
+                                <img src="<?php echo $item['item_image'] ?? "../assets/products/1.png" ?>"
+                                     style="height: 120px;" alt="cart1" class="img-fluid">
                             </div>
                             <div class="col-sm-8">
                                 <h5 class="font-baloo font-size-20"><?php echo $item['item_name'] ?? "Unknown"; ?></h5>
@@ -48,13 +49,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                                 <div class="qty d-flex pt-2">
 
                                     <form method="post">
-                                        <input type="hidden" value="<?php echo $item['item_id'] ?? 0; ?>" name="item_id">
-                                        <button type="submit" name="delete-cart-submit" class="btn font-baloo text-danger pl-0 pr-3 border-right">Delete</button>
+                                        <input type="hidden" value="<?php echo $item['item_id'] ?? 0; ?>"
+                                               name="item_id">
+                                        <button type="submit" name="delete-cart-submit"
+                                                class="btn font-baloo text-danger pl-0 pr-3 border-right">Delete
+                                        </button>
                                     </form>
 
                                     <form method="post">
-                                        <input type="hidden" value="<?php echo $item['item_id'] ?? 0; ?>" name="item_id">
-                                        <button type="submit" name="cart-submit" class="btn font-baloo text-danger">Add to Cart</button>
+                                        <input type="hidden" value="<?php echo $item['item_id'] ?? 0; ?>"
+                                               name="item_id">
+                                        <button type="submit" name="cart-submit" class="btn font-baloo text-danger">Add
+                                            to Cart
+                                        </button>
                                     </form>
 
 
@@ -65,7 +72,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
                             <div class="col-sm-2 text-right">
                                 <div class="font-size-20 text-danger font-baloo">
-                                    $<span class="product_price" data-id="<?php echo $item['item_id'] ?? '0'; ?>"><?php echo $item['item_price'] ?? 0; ?></span>
+                                    $<span class="product_price"
+                                           data-id="<?php echo $item['item_id'] ?? '0'; ?>"><?php echo $item['item_price'] ?? 0; ?></span>
                                 </div>
                             </div>
                         </div>

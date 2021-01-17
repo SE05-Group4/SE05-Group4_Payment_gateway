@@ -79,7 +79,7 @@
 	<div class="span5">
 		<table>
 			<tbody>
-				<tr><td><h4>Shipping Address</h5></td><td><h4>Billing Address</h4></td></tr>
+				<tr><td><h1>Shipping Address</h1></td><td><h4>Billing Address</h4></td></tr>
 				<tr><td><?php echo $shipToName;		?></td><td><?php echo $shipToName;		?></td></tr>
 				<tr><td><?php echo $shipToStreet;	?></td><td><?php echo $shipToStreet;	?></td></tr>
 				<tr><td><?php echo $shipToCity;		?></td><td><?php echo $shipToCity;		?></td></tr>
